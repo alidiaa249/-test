@@ -1,0 +1,449 @@
+:root {
+  --color-page: #f8fafa;
+  --color-section: #f2f4f4;
+  --color-footer-shell: #f8fafc;
+  --color-white: #ffffff;
+  --color-text: #191c1d;
+  --color-text-muted: #554434;
+  --color-brown: #8b5000;
+  --color-brown-shadow: rgba(139, 80, 0, 0.06);
+  --color-orange-accent: #ff9800;
+  --color-logo: #c2410c;
+  --color-nav: #475569;
+  --color-green-cta: #006e1c;
+  --color-green-sms: #00731e;
+  --color-green-sms-dark: #005313;
+  --color-footer-heading: #15803d;
+  --color-footer-text: #64748b;
+  --color-footer-border: #e2e8f0;
+  --color-input-bg: #f2f4f4;
+  --color-input-placeholder: #6b7280;
+  --color-border-light: #e1e3e3;
+  --color-bank-bg: #e6e8e9;
+  --color-badge: #91f78e;
+
+  /* Typography & layout scale */
+  --font: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius-lg: 32px;
+  --radius-md: 16px;
+  --radius-xl: 48px;
+
+  --shadow-card: 0 1px 1px rgba(0, 0, 0, 0.05);
+  --shadow-hero: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-nav: 0 40px 40px -5px var(--color-brown-shadow);
+
+  --max-content: 1280px;
+  --container: 1280px;
+  --pad: 32px;
+
+  /* About page semantic aliases */
+  --bg: #f8fafa;
+  --white: #ffffff;
+  --text: #191c1d;
+  --muted: #475569;
+  --brown: #8b5000;
+  --brand: #c2410c;
+  --green: #006e1c;
+  --green-2: #00731e;
+  --green-soft: #91f78e;
+  --sand: #ffdcbe;
+  --tile: #f2f4f4;
+  --tile-2: #e1e3e3;
+  --shadow-soft: 0 40px 40px -5px rgba(139, 80, 0, 0.06);
+  --shadow-btn: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--color-page);
+  color: var(--color-text);
+  direction: rtl;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Navbar
+   --------------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-nav);
+  border-bottom: 1px solid rgba(25, 28, 29, 0.1);
+
+
+}
+
+.header-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.header-logo {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--color-logo);
+  text-decoration: none;
+}
+
+.header-logo:hover {
+  text-decoration: none;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.header-nav a {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.625;
+  color: var(--color-nav);
+  text-decoration: none;
+}
+
+.header-nav a:hover {
+  color: var(--color-brown);
+  text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-active {
+  color: var(--color-logo);
+  border-bottom: 2px solid #ea580c;
+}
+
+/* Beat page-level `.btn` rules on About */
+.header-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+}
+
+.header-actions .btn:hover {
+  text-decoration: none;
+  filter: brightness(1.05);
+}
+
+.header-actions .btn.btn--brown {
+  background: var(--color-brown);
+  color: var(--color-white);
+  padding: 8px 32px;
+}
+
+.header-actions .btn.btn--brown.btn--nav {
+  min-height: 40px;
+}
+
+/* ---------------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------------- */
+
+.footer {
+  background: var(--color-footer-shell);
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+  overflow: hidden;
+}
+
+.footer-grid {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 64px 48px 48px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.footer-brand {
+  margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: right;
+  line-height: 28px;
+  color: #1e293b;
+}
+
+.footer-about {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-footer-text);
+  text-align: right;
+}
+
+.footer-heading {
+  margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: right;
+  line-height: 28px;
+  color: var(--color-footer-heading);
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.footer-links a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-footer-text);
+}
+
+.footer-newsletter-intro {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-footer-text);
+  text-align: right;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  font-family: var(--font);
+  font-size: 16px;
+  text-align: right;
+}
+
+.newsletter-form-input::placeholder {
+  color: var(--color-input-placeholder);
+}
+
+.newsletter-form-btn {
+  padding: 8px 24px;
+  border-radius: var(--radius-md);
+  border: 0;
+  background: var(--color-footer-heading);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.newsletter-form-btn:hover {
+  filter: brightness(1.05);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--color-footer-border);
+  padding: 33px 48px 32px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #94a3b8;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding-inline: 16px;
+  }
+
+  /* Home + Services main column padding */
+  .main__shell {
+    padding-inline: 16px;
+  }
+
+  .footer-grid,
+  .footer-bottom {
+    padding-inline: 24px;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   About page layout helpers + button primitive
+   --------------------------------------------------------------------------- */
+
+.container {
+  width: min(var(--container), 100% - 2 * var(--pad));
+  margin-inline: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 29.25px;
+  padding: 10px 32px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Shell used on Home + Services
+   --------------------------------------------------------------------------- */
+
+.main {
+  padding-bottom: 80px;
+}
+
+.main__shell {
+  position: relative;
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding-inline: 32px;
+}
+
+/* ---------------------------------------------------------------------------
+   Hero copy — shared by Home donation hero + Services hero
+   (About defines its own .hero overrides in about.css)
+   --------------------------------------------------------------------------- */
+
+.hero__badge {
+  display: inline-flex;
+  align-self: flex-end;
+  margin: 0 0 0 auto;
+  padding: 4px 16px;
+  border-radius: 999px;
+  background: var(--color-badge);
+  color: var(--color-green-sms);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px;
+  padding-bottom: 40px;
+}
+
+.hero__title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1;
+  text-align: right;
+}
+
+.hero__title-line {
+  padding: 10px;
+  display: block;
+}
+
+.hero__title-line--accent {
+  color: var(--color-brown);
+}
+
+.hero__lead {
+  margin: 0;
+  max-width: 576px;
+  font-size: 20px;
+  line-height: 1.625;
+  color: var(--color-text-muted);
+  text-align: right;
+}
